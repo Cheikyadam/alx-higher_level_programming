@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def uppercase(str):
     letter = 97
     for c in str:

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def islower(c):
     letter = 97
     while letter >= ord('a') and letter <= ord('z'):
