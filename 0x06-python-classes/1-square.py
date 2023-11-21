@@ -4,7 +4,7 @@
 
     Attributes:
     - size (int): the size of the square
-    """
+"""
 
 
 class Square:
