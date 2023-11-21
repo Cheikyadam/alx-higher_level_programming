@@ -3,7 +3,7 @@
     Simple class to represent a square.
 
     Attributes:
-    - size(int): the size of the square
+    - size (int): the size of the square
     """
 
 
