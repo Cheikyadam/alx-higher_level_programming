@@ -4,7 +4,10 @@ import sys
 
 def safe_function(fct, *args):
     try:
-        Result = fct(args[0], args[1])
+        if len(args) == 0:
+            Result = fct()
+        else:
+            Result = fct(args[0], args[1])
     except (ValueError) as ve:
         sys.stderr.write("Exception: {}\n".format(ve))
         return None
