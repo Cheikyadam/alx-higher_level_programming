@@ -2,12 +2,8 @@
 """
     Simple class to represent a square.
 
-    Args:
-        size: the size of the square
-
     Attributes:
-        size: the size of the square
-
+    - size(int): the size of the square
     """
 
 
