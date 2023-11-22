@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-Simple class to represent a square.
+    Simple class to represent a square.
 
-Attributes:
-    __size (int): the size of the square
+    Attributes:
+        __size (int): the size of the square
 """
 
 
