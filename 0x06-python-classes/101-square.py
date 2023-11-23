@@ -94,7 +94,7 @@ class Square:
         else:
             sq = ""
             for t in range(0, self.__position[0]):
-                sq += ""
+                sq += "\n"
             for i in range(0, self.__size):
                 for k in range(0, self.__position[0]):
                     sq += " "
