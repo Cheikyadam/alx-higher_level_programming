@@ -90,7 +90,7 @@ class Square:
         To print the square with #
         """
         if self.__size == 0:
-            return "\n"
+            return ""
         else:
             sq = ""
             for t in range(0, self.__position[1]):
