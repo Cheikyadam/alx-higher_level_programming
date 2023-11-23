@@ -89,9 +89,18 @@ class Square:
         """
         To print the square with #
         """
-        for i in range(0, self.__size):
+        if self.__size == 0:
+            for t in range(0, self.__position[1]):
+                print()
             for k in range(0, self.__position[0]):
-                print("-", end="")
-            for j in range(0, self.__size):
-                print("#", end="")
+                print(" ", end="")
             print()
+        else:
+            for t in range(0, self.__position[1]):
+                print()
+            for i in range(0, self.__size):
+                for k in range(0, self.__position[0]):
+                    print(" ", end="")
+                for j in range(0, self.__size):
+                    print("#", end="")
+                print()
