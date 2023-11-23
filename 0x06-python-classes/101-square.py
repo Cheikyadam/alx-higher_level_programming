@@ -93,7 +93,7 @@ class Square:
             return "\n"
         else:
             sq = ""
-            for t in range(0, self.__position[0]):
+            for t in range(0, self.__position[1]):
                 sq += "\n"
             for i in range(0, self.__size):
                 for k in range(0, self.__position[0]):
