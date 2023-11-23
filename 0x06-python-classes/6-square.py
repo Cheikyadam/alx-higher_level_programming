@@ -90,10 +90,6 @@ class Square:
         To print the square with #
         """
         if self.__size == 0:
-            for t in range(0, self.__position[1]):
-                print(" ")
-            for k in range(0, self.__position[0]):
-                print(" ", end="")
             print()
         else:
             for t in range(0, self.__position[1]):
