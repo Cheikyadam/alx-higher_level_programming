@@ -119,4 +119,4 @@ class Rectangle:
         To notice when an instance is deleted
         """
 
-        print("Bye Rectangle...")
+        print("Bye rectangle...")
