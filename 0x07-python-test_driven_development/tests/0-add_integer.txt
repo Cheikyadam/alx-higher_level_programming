@@ -49,3 +49,7 @@ Now use it:
 	89
 	>>> add_integer(1e1000, 1e100)
         89
+	>>> add_integer('nan')
+	Traceback (most recent call last):
+                ...
+        TypeError: a must be an integer
