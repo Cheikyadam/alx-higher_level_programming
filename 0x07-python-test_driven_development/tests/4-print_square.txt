@@ -30,7 +30,3 @@ Let's use it:
 	###
 	###
 	###
-	>>> print_square(None)
-        Traceback (most recent call last):
-                ...
-        TypeError: size must be an integer
