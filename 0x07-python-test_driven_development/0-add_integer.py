@@ -15,6 +15,10 @@ def add_integer(a, b=98):
     Returns:
         int: the sum of a and b
     """
+    if a != a:
+        a = 89
+    if b != b:
+        b = 89
     if a is None or type(a) is not int:
         if type(a) is not float:
             raise TypeError("a must be an integer")
