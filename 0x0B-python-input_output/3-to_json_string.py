@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+import json
+""" Module that returns json rep of a str"""
+
+
+def to_json_string(my_obj):
+    """
+    converting in json
+
+    Parameters:
+        my_obj (any class): the object
+
+    Returns:
+        the json representation of my_obj
+    """
+
+    return json.dumps(my_obj)
