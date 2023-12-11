@@ -115,7 +115,7 @@ class Rectangle(Base):
     def update(self, *args, **kwargs):
         """To update rectangle value"""
         nb = len(args)
-        if nb != 0:
+        if args is not None and nb != 0:
             if nb >= 1:
                 self.id = args[0]
             if nb >= 2:
@@ -139,3 +139,8 @@ class Rectangle(Base):
                         self.width = value
                     elif key == "height":
                         self.height = value
+
+    def to_dictionary(self):
+        """To return dictionary repr of a rectangle"""
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
