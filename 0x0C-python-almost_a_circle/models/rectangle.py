@@ -91,3 +91,37 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
+
+    def area(self):
+        """To calculate area of a rectangle"""
+        return self.__width * self.__height
+
+    def display(self):
+        """To display rectangle"""
+        for k in range(self.__y):
+            print()
+        for i in range(self.__height):
+            for t in range(self.__x):
+                    print(' ', end='')
+            for j in range(self.__width):
+                print("#", end='')
+            print()
+
+    def __str__(self):
+        """Printing rectangle infos"""
+        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
+    def update(self, *args):
+        """To update rectangle value"""
+        nb = len(args)
+        if nb != 0:
+            if nb >= 1:
+                self.id = args[0]
+            if nb >= 2:
+                self.width = args[1]
+            if nb >= 3:
+                self.height = args[2]
+            if nb >= 4:
+                self.x = args[3]
+            if nb >= 5:
+                self.y = args[4]
