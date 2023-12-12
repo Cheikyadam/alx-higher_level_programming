@@ -1,4 +1,5 @@
 import unittest
+import sys
 from models.rectangle import Rectangle
 from models.base import Base
 
@@ -93,6 +94,96 @@ class TestRectangle(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             r = Rectangle(3, 3, 4, -5, 9)
+    
+    def test_area(self):
+        r5 = Rectangle(9, 4)
+        self.assertEqual(r5.area(), 36)
+
+        r = Rectangle(2, 4, 6, 7, 90)
+        self.assertEqual(r.area(), 8)
+
+    def test_display(self):
+        my_r = Rectangle(2, 1)
+        with captured_output() as (out, err):
+            my_r.display()
+        output = out.getvalue().strip()
+        self.assertEqual(output, '##')
+
+    def test_display_next(self):
+        my_r = Rectangle(3, 2)
+        with captured_output() as (out, err):
+            my_r.display()
+        output = out.getvalue()
+        self.assertEqual(output, '###\n###\n')
+
+    def test_display2(self):
+        my_r = Rectangle(3, 4, 2, 0)
+        with captured_output() as (out, err):
+            my_r.display()
+        output = out.getvalue()
+        self.assertEqual(output, "  ###\n  ###\n  ###\n  ###\n")
+
+    def test_display3(self):
+        my_r = Rectangle(3, 4, 2, 2)
+        with captured_output() as (out, err):
+            my_r.display()
+        output = out.getvalue()
+        self.assertEqual(output, "\n\n  ###\n  ###\n  ###\n  ###\n")
+
+    def test_str(self):
+        my_r = Rectangle(3, 4, 2, 2, 0)
+        with captured_output() as (out, err):
+            print(my_r)
+        output = out.getvalue()
+        self.assertEqual(output, "[Rectangle] (0) 2/2 - 3/4\n")
+
+    def test_str2(self):
+        my_r = Rectangle(3, 4)
+        with captured_output() as (out, err):
+            print(my_r)
+        output = out.getvalue()
+        self.assertEqual(output, "[Rectangle] (9) 0/0 - 3/4\n")
+
+    def test_update(self):
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89)
+        self.assertEqual(rec.id, 89)
+        rec.update(89, 2)
+        self.assertEqual(rec.width, 2)
+        rec.update(89, 2, 5)
+        self.assertEqual(rec.height, 5)
+        rec.update(89, 2, 5, 19)
+        self.assertEqual(rec.x, 19)
+        rec.update(89, 2, 5, 19, 43)
+        self.assertEqual(rec.y, 43)
+
+    def test_update2(self):
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(height = 1)
+        self.assertEqual(rec.height, 1)
+        rec.update(width = 1, x = 2)
+        self.assertEqual(rec.width, 1)
+        self.assertEqual(rec.x, 2)
+        rec.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(rec.y, 1)
+        self.assertEqual(rec.width, 2)
+        self.assertEqual(rec.x, 3)
+        self.assertEqual(rec.id, 89)
+
+
+from contextlib import contextmanager
+from io import StringIO
+
+@contextmanager
+def captured_output():
+    new_out, new_err = StringIO(), StringIO()
+    old_out, old_err = sys.stdout, sys.stderr
+    try:
+        sys.stdout, sys.stderr = new_out, new_err
+        yield sys.stdout, sys.stderr
+    finally:
+        sys.stdout, sys.stderr = old_out, old_err
+
 
 if __name__ == '__main__':
     unittest.main()
