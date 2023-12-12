@@ -64,7 +64,11 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Creating form a dictionary"""
-        dum = cls(5, 4)
+        classname = str(cls)
+        if "Rectangle" in classname:
+            dum = cls(5, 4)
+        else:
+            dum = cls(5)
         dum.update(**dictionary)
         return dum
 
