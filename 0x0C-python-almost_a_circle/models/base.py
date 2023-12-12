@@ -35,7 +35,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """to save a rectangle or square to a file"""
         if list_objs is None or len(list_objs) == 0:
-            to_save = []
+            to_save = str([])
         else:
             to_save = []
             for obj in list_objs:
