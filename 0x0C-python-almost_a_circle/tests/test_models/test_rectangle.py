@@ -170,6 +170,15 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rec.x, 3)
         self.assertEqual(rec.id, 89)
 
+    def test_to_dic(self):
+        rec = Rectangle(10, 2, 1, 9, 0)
+        rec_d = rec.to_dictionary()
+        self.assertTrue(type(rec_d is dict))
+        with captured_output() as (out, err):
+            print(rec_d)
+        output = out.getvalue()
+        self.assertEqual(output, "{'x': 1, 'y': 9, 'id': 0, 'height': 2, 'width': 10}\n")
+
 
 from contextlib import contextmanager
 from io import StringIO
