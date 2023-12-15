@@ -90,3 +90,64 @@ class Base:
             return instances
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """to save a rectangle or square to a file csv format"""
+
+        classname = str(cls)
+        if "Rectangle" in classname:
+            name = "Rectangle.csv"
+            if list_objs is None or len(list_objs) == 0:
+                to_save = ""
+            else:
+                to_save = ""
+                for obj in list_objs:
+                    to_save += str(obj.id) + ","
+                    to_save += str(obj.width) + ","
+                    to_save += str(obj.height) + ","
+                    to_save += str(obj.x) + ","
+                    to_save += str(obj.y) + "\n"
+        else:
+            name = "Square.csv"
+            if list_objs is None or len(list_objs) == 0:
+                to_save = ""
+            else:
+                to_save = ""
+                for obj in list_objs:
+                    to_save += str(obj.id) + ","
+                    to_save += str(obj.size) + ","
+                    to_save += str(obj.x) + ","
+                    to_save += str(obj.y) + "\n"
+
+        with open(name, 'w', encoding="utf-8") as f:
+            f.write(to_save)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Load from json"""
+        classname = str(cls)
+        if "Rectangle" in classname:
+            name = "Rectangle.csv"
+        else:
+            name = "Square.csv"
+        try:
+            with open(name, 'r', encoding='utf-8') as f:
+                in_file = f.read()
+            instances = []
+            if len(in_file) == 0 or in_file is None:
+                return instances
+            else:
+                in_file = in_file[:-1]
+                in_file_list = in_file.split("\n")
+                for obj in in_file_list:
+                    cur = obj.split(",")
+                    if "Rectangle" in name:
+                        instances.append(cls(int(cur[1]), int(cur[2]), int(
+                            cur[3]), int(cur[4]), int(cur[0])))
+                    else:
+                        instances.append(cls(int(
+                            cur[1]), int(cur[2]), int(cur[3]), int(cur[0])))
+                return instances
+        except FileNotFoundError:
+            return []
