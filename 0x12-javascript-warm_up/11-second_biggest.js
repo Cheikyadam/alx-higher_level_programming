@@ -18,7 +18,7 @@ if (list.length === 2) {
   console.log(0);
 } else {
   if (list.length === 3) {
-    console.log(1);
+    console.log(0);
   } else {
     list.splice(0, 2);
     list.splice(max(list), 1);
