@@ -5,7 +5,7 @@ class Square extends Square2 {
     if (!c) {
       super.print();
     } else {
-      let w = c;
+      let w = '';
       for (let i = 0; i < this.height; i++) {
         w = w + c;
       }
