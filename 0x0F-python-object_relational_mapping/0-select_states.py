@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""first code"""
 import MySQLdb
 import sys
-"""first code"""
 if __name__ == "__main__":
     conn = MySQLdb.connect(
             host="localhost", port=3306,
