@@ -6,5 +6,7 @@ import sys
 
 if __name__ == '__main__':
     url = sys.argv[1]
-    r = requests.get(url)
-    print(r.headers['X-Request-Id'])
+    data = {}
+    data['email'] = sys.argv[2]
+    r = requests.post(url, data=data)
+    print(r.text)
