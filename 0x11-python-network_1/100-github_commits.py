@@ -15,7 +15,8 @@ if __name__ == '__main__':
             try:
                 print(
                         "{}: {}".
-                        format(res[i]['sha'], res[i]['commit']['author']['name']))
+                        format(
+                            res[i]['sha'], res[i]['commit']['author']['name']))
             except IndexError:
                 break
     except Exception as e:
