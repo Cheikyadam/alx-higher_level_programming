@@ -11,7 +11,8 @@ if __name__ == '__main__':
     else:
         q = ""
     parameters = {'q': q}
-    r = requests.post(url, params=parameters)
+    # url = f"{url}?q={q}"
+    r = requests.post(url, data=parameters)
     r_json = r.json()
     if len(r_json) == 0:
         print("No result")
