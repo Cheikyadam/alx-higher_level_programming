@@ -13,10 +13,11 @@ if __name__ == '__main__':
     parameters = {'q': q}
     # url = f"{url}?q={q}"
     r = requests.post(url, data=parameters)
-    r_json = r.json()
-    if len(r_json) == 0:
-        print("No result")
-    elif "id" in r_json and "name" in r_json:
-        print("[{}] {}".format(r_json['id'], r_json['name']))
-    else:
+    try:
+        r_json = r.json()
+        if len(r_json) == 0:
+            print("No result")
+        elif "id" in r_json and "name" in r_json:
+            print("[{}] {}".format(r_json['id'], r_json['name']))
+    except Exception as e:
         print("Not a valid JSON")
