@@ -12,8 +12,11 @@ if __name__ == '__main__':
         r = requests.get(url)
         res = r.json()
         for i in range(10):
-            print(
-                    "{}: {}".
-                    format(res[i]['sha'], res[i]['commit']['author']['name']))
+            try:
+                print(
+                        "{}: {}".
+                        format(res[i]['sha'], res[i]['commit']['author']['name']))
+            except IndexError:
+                break
     except Exception as e:
-        print(None)
+        pass
